@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url("/Assets/badgewatercolor_1.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+
+        h2 {
+            font-size: 60px;
+            text-align: center;
+            margin: 0;
+            padding: 20px 0;
+            color: rgb(244, 99, 145);
+            text-shadow: 3px 3px 3px black;
+        }
+
+        .container {
+            padding: 50px;
+            background-color: rgb(173, 189, 240);
+            margin-left: 32%;
+            height: 30%;
+            width: 30%;
+            margin-top: 6%;
+            margin-bottom: 6%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form class="container">
+            <center>
+                <h2>Form</h2>
+            </center>
+            <div>
+                <label for="fName">FirstName</label>
+                <input type="text" id="fName" required>
+            </div>
+            <br>
+            <div>
+                <label for="lName">LastName</label>
+                <input type="text" id="lName" required>
+            </div>
+            <br>
+            <div>
+                <label for="uName">UserName</label>
+                <input type="text" id="uName" required>
+            </div>
+            <br>
+
+            <input type="submit" id="submit">
+            <input type="reset" name="reset" id="reset">
+        </form>
+    </div>
+
+
+    <script>
+        let firstName;
+        function getFirstName() {
+            // alert(this.value)
+            firstName = this.value
+            //console.log(firstName)
+        }
+        let firstNameId = document.getElementById("fName")
+        firstNameId.addEventListener("change", getFirstName)
+
+        let lastName;
+        function getLastName() {
+            lastName = this.value
+            //console.log(lastName)
+        }
+        let lastNameId = document.getElementById("lName")
+        lastNameId.addEventListener("change", getLastName)
+
+        let userName;
+        function getUserName() {
+            userName = this.value
+            //console.log(userName)
+        }
+        let userNameId = document.getElementById("uName")
+        userNameId.addEventListener("change", getUserName)
+
+
+
+        function onSubmit() {
+            // localstorage
+            localStorage.setItem("firstName", firstName)
+            localStorage.setItem("lastName", lastName)
+            localStorage.setItem("userName", userName)
+            // sessionstorage
+            sessionStorage.setItem("firstName", firstName)
+            sessionStorage.setItem("lastName", lastName)
+            sessionStorage.setItem("userName", userName)
+            //removing detains from local or session storage
+            //localStorage.removeItem("firstName")
+            // sessionStorage.removeItem("firstName")
+            alert(" form Submitted")
+        }
+        let button = document.getElementById("submit")
+        //button.addEventListener("click", onSubmit)
+        button.onclick = onSubmit;
+    </script>
+</body>
+
+</html>
